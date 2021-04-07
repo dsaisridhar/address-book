@@ -1,0 +1,17 @@
+{
+  "addressBook": {
+    "title": "Carnet d'adresses",
+    "id": "identifiant",
+    "name": "Nom",
+    "location": "Emplacement",
+    "office": "Bureau",
+    "phone": "Téléphoner",
+    "cell": "Cellule"
+  },
+  "common": {
+    "delete": "Effacer",
+    "update": "Mettre à jour",
+    "add": "Ajouter",
+    "footer": "Bas de page"
+  }
+}

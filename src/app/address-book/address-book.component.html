@@ -1,0 +1,59 @@
+<div class="address-book">
+  <header>
+    <h2>{{ 'addressBook.title' | translate }}</h2>
+  </header>
+  <main>
+    <div style="display: flex;margin-bottom: 12px;justify-content: flex-end;">
+      <button class="danger">{{ 'common.delete' | translate }}</button>
+      <button class="secondary">{{ 'common.update' | translate }}</button>
+      <button class="primary">{{ 'common.add' | translate }}</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="address-book-table">
+        <thead>
+          <tr>
+            <th rowspan="2">
+              <app-checkbox [id]="0"></app-checkbox>
+            </th>
+            <th rowspan="2">{{ 'addressBook.id' | translate }}</th>
+            <th rowspan="2">{{ 'addressBook.name' | translate }}</th>
+            <th rowspan="2">{{ 'addressBook.location' | translate }}</th>
+            <th rowspan="2">{{ 'addressBook.office' | translate }}</th>
+            <th colspan="2">{{ 'addressBook.phone' | translate }}</th>
+          </tr>
+          <tr>
+            <th>{{ 'addressBook.office' | translate }}</th>
+            <th>{{ 'addressBook.cell' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <app-checkbox [id]="1"></app-checkbox>
+            </td>
+            <td>1</td>
+            <td>Smith</td>
+            <td>Palo Alto</td>
+            <td>C-103</td>
+            <td>x57788</td>
+            <td>650-370-1234</td>
+          </tr>
+          <tr>
+            <td>
+              <app-checkbox [id]="2"></app-checkbox>
+            </td>
+            <td>2</td>
+            <td>John</td>
+            <td>Palo Alto</td>
+            <td>C-103</td>
+            <td>x1234</td>
+            <td>732-333-4444</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <footer>
+    {{ 'common.footer' | translate }}
+  </footer>
+</div>

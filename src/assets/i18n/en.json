@@ -1,0 +1,17 @@
+{
+  "addressBook": {
+    "title": "Address Book",
+    "id": "ID",
+    "name": "Name",
+    "location": "Location",
+    "office": "Office",
+    "phone": "Phone",
+    "cell": "Cell"
+  },
+  "common": {
+    "delete": "Delete",
+    "update": "Update",
+    "add": "Add",
+    "footer": "Footer"
+  }
+}
