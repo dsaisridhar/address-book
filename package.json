@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~11.2.8",
     "@angular/platform-browser-dynamic": "~11.2.8",
     "@angular/router": "~11.2.8",
+    "@ngrx/effects": "^11.1.0",
+    "@ngrx/entity": "^11.1.0",
     "@ngrx/store": "^11.1.0",
     "@ngrx/store-devtools": "^11.1.0",
     "@ngx-translate/core": "^13.0.0",

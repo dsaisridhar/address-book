@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-html,body {
+html,body,input,button {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
@@ -25,14 +25,29 @@ button:hover {
   opacity: 0.8;
 }
 
+.display-flex {
+  display: flex;
+}
+
+.app-card {
+  box-shadow: 0 2px 2px rgb(0 0 0 / 24%), 0 0 2px rgb(0 0 0 / 12%);
+  border-radius: 4px;
+}
+
 .primary {
-  background-color: #3392d9;
+  background-color: #4ca85f;
 }
 
 .secondary {
-  background-color: #e8ae03;
+  background-color: #e2af1c;
 }
 
 .danger {
   background-color: #d81d0b;
+}
+
+.danger-outline {
+  background-color: white;
+  color: #d81d0b;
+  border: 2px solid #d81d0b;
 }

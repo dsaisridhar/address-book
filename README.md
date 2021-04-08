@@ -1,6 +1,15 @@
 # AddressBook
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+This project is a simple address book developed using `angular-11.2.8`, `ngrx-11.1.0` with minimal external libs.
+
+## Functionality
+The Address book has 6 rows `(id, name, location, office, officePhone and cellPhone)`. At the beginning of the table there are checkboxes to select each row. This project has been developed to support two languages(English and French).
+All fields in the table are editable except for ID Column.
+
+### Buttons
+- `Add` : This button adds an empty row to the table(ID gets generated only after Update).
+- `Update` : Major functionality of this button is to save all the updated and newly added records and generate ids for newly added rows/contacts
+- `Delete`: This button works only if there are any checked rows. Multiple records can be deleted at a time.
 
 ## Development server
 

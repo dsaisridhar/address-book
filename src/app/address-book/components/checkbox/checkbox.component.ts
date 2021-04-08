@@ -1,7 +1,5 @@
-import { Component, Input, forwardRef, OnDestroy } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
-// import { Subject } from 'rxjs';
-// import { takeUntil } from 'rxjs/operators';
+import { Component, Input, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox',
@@ -19,9 +17,6 @@ export class CheckboxComponent implements ControlValueAccessor {
   @Input('value') _value = false;
   @Input('id') cbxId = 'cbx';
 
-  // checkBoxField = new FormControl(true);
-  // destroy$: Subject<boolean> = new Subject<boolean>();
-
   onChange: any = () => {};
   onTouched: any = () => {};
 
@@ -29,29 +24,19 @@ export class CheckboxComponent implements ControlValueAccessor {
     return this._value;
   }
 
-  set value(val) {
-    this._value = val;
-    this.onChange(val);
-    this.onTouched();
-  }
-
-  constructor() {
-    // this.subscribeChanges();
+  set value(v: any) {
+    if (v !== this._value) {
+      this._value = v;
+      this.onChange(v);
+    }
   }
 
   registerOnChange(fn) {
     this.onChange = fn;
   }
 
-  // ngOnDestroy() {
-  //   this.destroy$.next(true);
-  //   this.destroy$.complete();
-  // }
-
   writeValue(value) {
-    if (value) {
-      this.value = value;
-    }
+    this.value = value;
   }
 
   registerOnTouched(fn) {
@@ -61,11 +46,5 @@ export class CheckboxComponent implements ControlValueAccessor {
   changeCheckBox(ev) {
     this.writeValue(ev.target.checked);
   }
-
-  // private subscribeChanges() {
-  //   this.checkBoxField.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((value) => {
-  //     this.writeValue(value);
-  //   });
-  // }
 }
 

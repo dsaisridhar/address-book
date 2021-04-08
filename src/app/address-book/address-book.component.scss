@@ -1,3 +1,7 @@
+.table-wrapper {
+  overflow-x:auto;
+}
+
 .address-book {
   min-height: 100vh;
   display: flex;
@@ -6,9 +10,11 @@
   header {
     position: sticky;
     padding: 0.5rem;
+    z-index: 3;
     box-shadow: 0 2px 6px 0 rgb(0 0 0 / 4%), 0 6px 12px rgb(0 0 0 / 2%);
     text-align: center;
     top: 0;
+    border-bottom: 1px solid #eaeaea;
     background: white;
   }
 
@@ -24,7 +30,40 @@
     background: whitesmoke;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
+}
+
+.modal-padding {
+  padding: 24px;
+}
+
+.updated-list {
+  li {
+    margin-bottom: 12px;
+  }
+}
+
+.actions-wrapper {
+  display: flex;
+  margin-top: 24px;
+  justify-content: space-between;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.icon-right {
+  margin-left: 8px;
+}
+
+.fa-caret-down {
+  opacity: 0.3; 
+}
+
+.fa-caret-down.active {
+  opacity: 1; 
 }
 
 table.address-book-table {
@@ -33,9 +72,19 @@ table.address-book-table {
   width: 100%;
   border: 1px solid #ddd;
 
-  th, td {
+  th {
     text-align: center;
     padding: 8px;
+    border: 1px solid #ddd;
+
+    &.sortable {
+      cursor: pointer;
+    }
+  }
+
+  td {
+    text-align: center;
+    box-sizing: border-box;
     border: 1px solid #ddd;
   }
 
@@ -43,9 +92,7 @@ table.address-book-table {
     tr, th {
       border-bottom: 1px solid #ddd;
     }
-
-    // tr:last-child {
-    //   border-bottom: 2px solid #ddd;
-    // }
   }
+
+  tbody tr:nth-child(odd){background-color: #f7f6f6;}
 }

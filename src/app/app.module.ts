@@ -4,11 +4,15 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
-// importing local modules
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AddressBookModule } from './address-book/address-book.module';
 
+import { reducers } from './store';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -25,6 +29,21 @@ import { AppComponent } from './app.component';
         useFactory: HttpLoaderFactory,
         deps: [ HttpClient ],
       },
+    }),
+    StoreModule.forRoot(reducers, {
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+        strictStateSerializability: true,
+        strictActionSerializability: true,
+        strictActionWithinNgZone: true,
+        strictActionTypeUniqueness: true,
+      }
+    }),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
     }),
     AddressBookModule,
   ],

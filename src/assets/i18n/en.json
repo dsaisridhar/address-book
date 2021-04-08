@@ -1,6 +1,6 @@
 {
   "addressBook": {
-    "title": "Address Book",
+    "title": "ADDRESS BOOK",
     "id": "ID",
     "name": "Name",
     "location": "Location",
@@ -12,6 +12,6 @@
     "delete": "Delete",
     "update": "Update",
     "add": "Add",
-    "footer": "Footer"
+    "footer": "Footer goes here"
   }
 }
