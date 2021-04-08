@@ -1,0 +1,122 @@
+<div class="address-book">
+  <header>
+    <h2>{{ 'addressBook.title' | translate }}</h2>
+  </header>
+  <main>
+    <div class="table-wrapper" *ngIf="contactList$ | async as contactList">
+      <form [formGroup]="contactsForm">
+        <table class="address-book-table">
+          <thead>
+            <tr>
+              <th rowspan="2">
+                <div (click)="toggleAll($event)">
+                  <app-checkbox [id]="-1" [value]="isAllChecked" formControlName="allChecked"></app-checkbox>
+                </div>
+              </th>
+              <th rowspan="2" class="sortable" (click)="sortBy('id')">
+                {{ 'addressBook.id' | translate }}
+                <i class="fa fa-caret-down icon-right" [class.active] = "currentSort.field === 'id'"></i>
+              </th>
+              <th rowspan="2" class="sortable" (click)="sortBy('name')">
+                {{ 'addressBook.name' | translate }}
+                <i class="fa fa-caret-down icon-right" [class.active] = "currentSort.field === 'name'"></i>
+              </th>
+              <th rowspan="2" class="sortable" (click)="sortBy('location')">
+                {{ 'addressBook.location' | translate }}
+                <i class="fa fa-caret-down icon-right" [class.active] = "currentSort.field === 'location'"></i>
+              </th>
+              <th rowspan="2" class="sortable" (click)="sortBy('office')">
+                {{ 'addressBook.office' | translate }}
+                <i class="fa fa-caret-down icon-right" [class.active] = "currentSort.field === 'office'"></i>
+              </th>
+              <th colspan="2">{{ 'addressBook.phone' | translate }}</th>
+            </tr>
+            <tr>
+              <th class="sortable" (click)="sortBy('officePhone')">
+                {{ 'addressBook.office' | translate }}
+                <i class="fa fa-caret-down icon-right" [class.active] = "currentSort.field === 'officePhone'"></i>
+              </th>
+              <th class="sortable" (click)="sortBy('cellPhone')">
+                {{ 'addressBook.cell' | translate }}
+                <i class="fa fa-caret-down icon-right" [class.active] = "currentSort.field === 'cellPhone'"></i>
+              </th>
+            </tr>
+          </thead>
+          <tbody formArrayName="contactsArray">
+            <tr *ngFor="let contact of contactsArrayForm.controls;let i=index;" formGroupName="{{i}}">
+              <td>
+                <app-checkbox id="{{ i + 1 }}" formControlName="selected" (ngModelChange)="toggleItem($event, i)"></app-checkbox>
+              </td>
+              <td>
+                <div class="element">{{ getContactId(contact) }}</div>
+              </td>
+              <td>
+                <app-inline-edit fieldName="name" (blur)="updateField($event, i)" formControlName="name">
+                </app-inline-edit>
+              </td>
+              <td>
+                <app-inline-edit fieldName="location" (blur)="updateField($event, i)" formControlName="location">
+                </app-inline-edit>
+              </td>
+              <td>
+                <app-inline-edit fieldName="office" (blur)="updateField($event, i)" formControlName="office">
+                </app-inline-edit>
+              </td>
+              <td>
+                <app-inline-edit fieldName="officePhone" (blur)="updateField($event, i)" formControlName="officePhone">
+                </app-inline-edit>
+              </td>
+              <td>
+                <app-inline-edit fieldName="cellPhone" (blur)="updateField($event, i)" formControlName="cellPhone">
+                </app-inline-edit>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <div class="actions-wrapper">
+      <button class="danger-outline" (click)="deleteSelectedContacts()"><i class="fa fa-trash icon"></i>{{ 'common.delete' | translate }}</button>
+
+      <div class="flex-display">
+        <button class="secondary" (click)="updateAll()"><i class="fa fa-pencil icon"></i>{{ 'common.update' | translate }}</button>
+        <button class="primary" (click)="addNewRow()"><i class="fa fa-plus icon"></i>{{ 'common.add' | translate }}</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    {{ 'common.footer' | translate }}
+  </footer>
+</div>
+
+<div *ngIf="updatedContactList$ | async as updatedContacts">
+  <app-modal #modal (close)="onModalClose($event)">
+    <div class="modal-padding ">
+      <div *ngIf="(updatedContacts.addedItems.length === 0 && updatedContacts.updatedItems.length === 0); else successHeader">
+        <h2>No Changes</h2>
+      </div>
+      <ng-template #successHeader>
+        <h2>Changes Saved Successfully</h2>
+        <h4>Below are summary of your changes</h4>
+      </ng-template>
+      <div *ngIf="updatedContacts.addedItems.length > 0">
+        <h4>Added Contacts</h4>
+          <ul class="updated-list">
+            <li *ngFor="let contact of updatedContacts.addedItems">
+              Name: {{ contact.name || 'N/A' }} - Location: {{contact.location || 'N/A' }} - Office: {{ contact.office || 'N/A' }}
+              - cellPhone: {{ contact.cellPhone || 'N/A' }} - officePhone: {{ contact.officePhone || 'N/A' }}
+            </li>
+          </ul>
+      </div>
+      <div *ngIf="updatedContacts.updatedItems.length > 0">
+        <h4>Updated Contacts</h4>
+          <ul>
+            <li *ngFor="let contact of updatedContacts.updatedItems">
+              Name: {{ contact.name || 'N/A' }} - Location: {{contact.location || 'N/A' }} - Office: {{ contact.office || 'N/A' }}
+              - cellPhone: {{ contact.cellPhone || 'N/A' }} - officePhone: {{ contact.officePhone || 'N/A' }}
+            </li>
+          </ul>
+      </div>
+    </div>
+  </app-modal>
+</div>

@@ -1,0 +1,6 @@
+<div class="full-width flex-display">
+  <input type="text" *ngIf="editing; else readOnly" [maxlength]="maxlength" [appNumbersOnly]="isPhoneField" class="inline-input" (blur)="onBlur($event)" [name]="fieldName" [(ngModel)]="value" autoFocus />
+  <ng-template #readOnly>
+    <div class="element" (dblclick)="beginEdit(value)">{{ value | phoneFormat: isPhoneField }}</div>
+  </ng-template>
+</div>
