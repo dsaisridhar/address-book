@@ -51,23 +51,23 @@
                 <div class="element">{{ getContactId(contact) }}</div>
               </td>
               <td>
-                <app-inline-edit fieldName="name" (blur)="updateField($event, i)" formControlName="name">
+                <app-inline-edit fieldName="name" (blurEvent)="updateField($event, i)" formControlName="name">
                 </app-inline-edit>
               </td>
               <td>
-                <app-inline-edit fieldName="location" (blur)="updateField($event, i)" formControlName="location">
+                <app-inline-edit fieldName="location" (blurEvent)="updateField($event, i)" formControlName="location">
                 </app-inline-edit>
               </td>
               <td>
-                <app-inline-edit fieldName="office" (blur)="updateField($event, i)" formControlName="office">
+                <app-inline-edit fieldName="office" (blurEvent)="updateField($event, i)" formControlName="office">
                 </app-inline-edit>
               </td>
               <td>
-                <app-inline-edit fieldName="officePhone" (blur)="updateField($event, i)" formControlName="officePhone">
+                <app-inline-edit fieldName="officePhone" (blurEvent)="updateField($event, i)" formControlName="officePhone">
                 </app-inline-edit>
               </td>
               <td>
-                <app-inline-edit fieldName="cellPhone" (blur)="updateField($event, i)" formControlName="cellPhone">
+                <app-inline-edit fieldName="cellPhone" (blurEvent)="updateField($event, i)" formControlName="cellPhone">
                 </app-inline-edit>
               </td>
             </tr>
@@ -90,7 +90,7 @@
 </div>
 
 <div *ngIf="updatedContactList$ | async as updatedContacts">
-  <app-modal #modal (close)="onModalClose($event)">
+  <app-modal #modal (closeModal)="onModalClose($event)">
     <div class="modal-padding ">
       <div *ngIf="(updatedContacts.addedItems.length === 0 && updatedContacts.updatedItems.length === 0); else successHeader">
         <h2>No Changes</h2>
@@ -103,17 +103,23 @@
         <h4>Added Contacts</h4>
           <ul class="updated-list">
             <li *ngFor="let contact of updatedContacts.addedItems">
-              Name: {{ contact.name || 'N/A' }} - Location: {{contact.location || 'N/A' }} - Office: {{ contact.office || 'N/A' }}
-              - cellPhone: {{ contact.cellPhone || 'N/A' }} - officePhone: {{ contact.officePhone || 'N/A' }}
+              <p>Name: {{ contact.name || 'N/A' }}</p>
+              <p>Location: {{contact.location || 'N/A' }}</p>
+              <p>Office: {{ contact.office || 'N/A' }}</p>
+              <p>cellPhone: {{ (contact.cellPhone | phoneFormat: true) || 'N/A' }}</p>
+              <p>officePhone:  {{ (contact.officePhone | phoneFormat: true) || 'N/A' }}</p>
             </li>
           </ul>
       </div>
       <div *ngIf="updatedContacts.updatedItems.length > 0">
         <h4>Updated Contacts</h4>
-          <ul>
+          <ul class="updated-list">
             <li *ngFor="let contact of updatedContacts.updatedItems">
-              Name: {{ contact.name || 'N/A' }} - Location: {{contact.location || 'N/A' }} - Office: {{ contact.office || 'N/A' }}
-              - cellPhone: {{ contact.cellPhone || 'N/A' }} - officePhone: {{ contact.officePhone || 'N/A' }}
+              <p>Name: {{ contact.name || 'N/A' }}</p>
+              <p>Location: {{contact.location || 'N/A' }}</p>
+              <p>Office: {{ contact.office || 'N/A' }}</p>
+              <p>cellPhone: {{ (contact.cellPhone | phoneFormat: true) || 'N/A' }}</p>
+              <p>officePhone:  {{ (contact.officePhone | phoneFormat: true) || 'N/A' }}</p>
             </li>
           </ul>
       </div>

@@ -1,6 +1,6 @@
 # AddressBook
 
-This project is a simple address book developed using `angular-11.2.8`, `ngrx-11.1.0` with minimal external libs.
+This project is a simple address book developed using `angular-11.2.8`, `ngrx-11.1.0` with minimal external libs. This project works best with node versions of `10.13.x/12.11.x or later minor`
 
 ## Functionality
 The Address book has 6 rows `(id, name, location, office, officePhone and cellPhone)`. At the beginning of the table there are checkboxes to select each row. This project has been developed to support two languages(English and French).
@@ -11,9 +11,17 @@ All fields in the table are editable except for ID Column.
 - `Update` : Major functionality of this button is to save all the updated and newly added records and generate ids for newly added rows/contacts
 - `Delete`: This button works only if there are any checked rows. Multiple records can be deleted at a time.
 
-## Development server
+## Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
+
+To get started locally, follow these instructions:
+
+1. If you haven't done it already, [make a clone of this repo](https://github.com/dsaisridhar/address-book).
+1. Clone to your local computer using `git`.
+1. Make sure that you have Node 10.13 or later installed. See instructions [here](https://nodejs.org/en/download/).
+1. Run `npm ci`
+1. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

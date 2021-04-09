@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PhoneFormatPipe implements PipeTransform {
   transform(value: string, isPhoneField: boolean): any {
-    if(!isPhoneField) {
+    if (!isPhoneField) {
         return value;
     }
 

@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'address-book';
 
   constructor(private translate: AppTranslateService) {
-    
+
   }
 }

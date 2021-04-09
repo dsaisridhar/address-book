@@ -14,12 +14,12 @@ const VALUE_ACCESSOR = {
   styleUrls: ['./inline-edit.component.scss']
 })
 
-export class InlineEditComponent implements ControlValueAccessor{
+export class InlineEditComponent implements ControlValueAccessor {
   @Input() id = 0;
   @Input() required = true;
   @Input() fieldName = '';
 
-  @Output() blur = new EventEmitter<any>();
+  @Output() blurEvent = new EventEmitter<any>();
   private _value = '';
   private editing = false;
   onChange: any = () => {};
@@ -58,7 +58,7 @@ export class InlineEditComponent implements ControlValueAccessor{
 
   onBlur($event: Event) {
     this.editing = false;
-    this.blur.emit({ fieldName: this.fieldName, value: this.value });
+    this.blurEvent.emit({ fieldName: this.fieldName, value: this.value });
   }
 
   beginEdit(value) {

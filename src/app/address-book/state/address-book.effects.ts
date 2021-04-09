@@ -39,7 +39,7 @@ export class AddressBookEffects {
           map((data: string[]) =>
             AddressBookActions.deleteMultipleContactsSuccess({ contacts: action.contacts })
           )
-        )
+        );
       })
     );
   });
@@ -51,7 +51,7 @@ export class AddressBookEffects {
       mergeMap(([action, initialContactList]) =>
         this.addressBookService.addUpdateMultiple(initialContactList, action.contacts).pipe(
           map((data: UpdateContactList) => {
-            return AddressBookActions.updateAllContactListSuccess({ updatedContacts: data})
+            return AddressBookActions.updateAllContactListSuccess({ updatedContacts: data});
           })
         )
       )
