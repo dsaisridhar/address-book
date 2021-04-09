@@ -38,13 +38,13 @@ export function removeContactsFromInitial(initialList: IContact[], deleteIds: st
 
 export function sortByField(contactList: IContact[], fieldName: string, sortDir?: SortDir) {
   if (sortDir === 'desc') {
-    return contactList.slice().sort((a,b) => (a[fieldName] > b[fieldName]) ? 1 : ((b[fieldName] > a[fieldName]) ? -1 : 0)).reverse();
+    return contactList.slice().sort((a, b) => (a[fieldName] > b[fieldName]) ? 1 : ((b[fieldName] > a[fieldName]) ? -1 : 0)).reverse();
   }
-  return contactList.slice().sort((a,b) => (a[fieldName] > b[fieldName]) ? 1 : ((b[fieldName] > a[fieldName]) ? -1 : 0));
+  return contactList.slice().sort((a, b) => (a[fieldName] > b[fieldName]) ? 1 : ((b[fieldName] > a[fieldName]) ? -1 : 0));
 }
 
 export function getUpdatedItems(initialContactList: IContact[], currentContactList: IContact[]): UpdateContactList {
-  const updatedContactList: UpdateContactList= {
+  const updatedContactList: UpdateContactList = {
     addedItems: [],
     updatedItems: [],
   };

@@ -35,13 +35,21 @@
 }
 
 .modal-padding {
-  padding: 24px;
+  padding: 0px 24px 24px 24px
 }
 
 .updated-list {
   li {
+    padding: 8px;
+    border-radius: 4px;
     margin-bottom: 12px;
+
+    p {
+      margin: 0;
+    }
   }
+
+  li:nth-child(odd){ background-color: #f7f6f6; }
 }
 
 .actions-wrapper {

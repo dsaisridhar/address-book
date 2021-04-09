@@ -99,7 +99,7 @@ export class AddressBookComponent implements OnInit, OnDestroy {
         update: {
           id: this.getIdByIndex(index),
           changes: {
-            [ev.fieldName]: ev.value 
+            [ev.fieldName]: ev.value
           }
         }
       })
@@ -148,7 +148,9 @@ export class AddressBookComponent implements OnInit, OnDestroy {
   }
 
   openModal(): void {
-    this.modal && this.modal.openModal();
+    if (this.modal) {
+      this.modal.openModal();
+    }
   }
 
   onModalClose(): void {

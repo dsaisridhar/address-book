@@ -49,7 +49,7 @@ export const reducer = createReducer(
     Add Contact Row
   */
   on(addressBookActions.addToContactList, (state, action) => {
-    return adapter.addOne(action.contact, state)
+    return adapter.addOne(action.contact, state);
   }),
 
   /*
@@ -79,7 +79,7 @@ export const reducer = createReducer(
   */
   on(addressBookActions.toggleAllSelection, (state, action) => {
     const updates = utils.toggleAllContacts(Object.values(state.ids), action.isChecked);
-    return adapter.updateMany(updates, state)
+    return adapter.updateMany(updates, state);
   }),
 
   /*
@@ -87,7 +87,7 @@ export const reducer = createReducer(
   */
   on(addressBookActions.toggleItemSelection, (state, action) => {
     const update = utils.toggleContactListItem(action.id, action.isChecked);
-    return adapter.updateOne(update, state)
+    return adapter.updateOne(update, state);
   }),
 
   /*
