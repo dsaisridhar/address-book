@@ -17,6 +17,7 @@ import { AddressBookComponent } from './address-book.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { InlineEditComponent } from './components/inline-edit/inline-edit.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { ContactListItemComponent } from './components/contact-list-item/contact-list-item.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ModalComponent } from './components/modal/modal.component';
     NumbersOnlyDirective,
     PhoneFormatPipe,
     ModalComponent,
+    ContactListItemComponent,
   ],
   imports: [
     CommonModule,

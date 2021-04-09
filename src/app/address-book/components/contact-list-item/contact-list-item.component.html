@@ -1,0 +1,7 @@
+<div class="contact-item">
+  <p>Name: {{ contact?.name || 'N/A' }}</p>
+  <p>Location: {{contact?.location || 'N/A' }}</p>
+  <p>Office: {{ contact?.office || 'N/A' }}</p>
+  <p>cellPhone: {{ (contact?.cellPhone | phoneFormat: true) || 'N/A' }}</p>
+  <p>officePhone:  {{ (contact?.officePhone | phoneFormat: true) || 'N/A' }}</p>
+</div>

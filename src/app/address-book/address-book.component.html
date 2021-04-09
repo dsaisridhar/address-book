@@ -103,11 +103,7 @@
         <h4>Added Contacts</h4>
           <ul class="updated-list">
             <li *ngFor="let contact of updatedContacts.addedItems">
-              <p>Name: {{ contact.name || 'N/A' }}</p>
-              <p>Location: {{contact.location || 'N/A' }}</p>
-              <p>Office: {{ contact.office || 'N/A' }}</p>
-              <p>cellPhone: {{ (contact.cellPhone | phoneFormat: true) || 'N/A' }}</p>
-              <p>officePhone:  {{ (contact.officePhone | phoneFormat: true) || 'N/A' }}</p>
+              <app-contact-list-item [contact]="contact"></app-contact-list-item>
             </li>
           </ul>
       </div>
@@ -115,11 +111,7 @@
         <h4>Updated Contacts</h4>
           <ul class="updated-list">
             <li *ngFor="let contact of updatedContacts.updatedItems">
-              <p>Name: {{ contact.name || 'N/A' }}</p>
-              <p>Location: {{contact.location || 'N/A' }}</p>
-              <p>Office: {{ contact.office || 'N/A' }}</p>
-              <p>cellPhone: {{ (contact.cellPhone | phoneFormat: true) || 'N/A' }}</p>
-              <p>officePhone:  {{ (contact.officePhone | phoneFormat: true) || 'N/A' }}</p>
+              <app-contact-list-item [contact]="contact"></app-contact-list-item>
             </li>
           </ul>
       </div>
